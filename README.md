@@ -1,6 +1,6 @@
 # 👁️ Sheikah Translator
 
-![Sheikah Banner](https://apptcr.github.io/sheikahtranslate/og-image.jpg)
+![Sheikah Banner](https://apptcr.github.io/sheikahtranslate/banner.webp)
 
 > **ACCESSING ANCIENT DATABASE...**
 > เครื่องมือแปลข้อความภาษาไทยและภาษาอังกฤษ ให้กลายเป็นอักษรโบราณ **Sheikah Script** จากเกม *The Legend of Zelda*
