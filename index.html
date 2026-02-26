@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheikah Translator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slate-container">
+        <header>
+            <h1>SHEIKAH TRANSLATOR</h1>
+            <button id="swapBtn" title="Swap Languages">⇄ SWAP DIRECTION</button>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label id="labelInput">English Input</label>
+                <textarea id="mainInput" placeholder="Type here..."></textarea>
+            </div>
+
+            <div class="divider">▼</div>
+
+            <div class="output-section">
+                <label id="labelOutput">Sheikah Script</label>
+                <div id="mainOutput" class="sheikah-font"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>ACCESSING ANCIENT DATABASE...</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
