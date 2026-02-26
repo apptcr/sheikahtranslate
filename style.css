@@ -27,7 +27,7 @@ body {
     box-shadow: 10px 10px 0px #8e7f67;
     position: relative;
     margin: 20px 0;
-    box-sizing: border-box; /* ป้องกัน Container ขยายเกินหน้าจอ */
+    box-sizing: border-box;
 }
 
 .slate-container::before {
@@ -50,24 +50,28 @@ header h1 {
     padding-bottom: 10px;
 }
 
-#swapBtn {
+#swapBtn, #refBtn {
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 15px auto;
     background: #1e5a63;
     color: #f4eee1;
     border: none;
-    padding: 8px 15px;
+    padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Palatino', serif;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
+    font-size: 0.8rem;
     font-weight: bold;
     transition: all 0.2s;
 }
 
-#swapBtn:hover {
-    background: #26a5b5;
+#refBtn {
+    background: #8e7f67;
+    margin-top: 20px;
+}
+
+#swapBtn:hover, #refBtn:hover {
+    filter: brightness(1.2);
     transform: translateY(-2px);
 }
 
@@ -97,17 +101,9 @@ textarea {
 .input-sheikah {
     font-family: 'Sheikah', sans-serif !important;
     font-size: 1.4rem !important;
-    word-break: break-all; /* บังคับตัดบรรทัดในช่อง Input ด้วย */
+    word-break: break-all;
 }
 
-.divider {
-    text-align: center;
-    margin: 15px 0;
-    font-size: 1.5rem;
-    color: #b5a489;
-}
-
-/* แก้ไขจุดที่เป็นปัญหาหลัก */
 #mainOutput {
     width: 100%;
     min-height: 120px;
@@ -118,20 +114,16 @@ textarea {
     margin-top: 5px;
     border-radius: 4px;
     text-align: center;
-    
-    /* บังคับตัดคำทุกกรณีเมื่อถึงขอบกรอบ */
     word-wrap: break-word;
     word-break: break-all; 
     overflow-wrap: anywhere;
     white-space: normal;
-    
-    /* เปลี่ยนจาก Flex เป็น Block เพื่อให้การตัดบรรทัดทำงานได้แม่นยำขึ้น */
     display: block; 
 }
 
 .sheikah-font {
     font-family: 'Sheikah', sans-serif;
-    font-size: 2.2rem; /* ปรับขนาดลงเล็กน้อยเพื่อให้สมดุล */
+    font-size: 2.2rem;
     color: #26a5b5;
     line-height: 1.4;
     width: 100%;
@@ -142,24 +134,73 @@ textarea {
     font-family: 'Palatino', serif !important;
     font-size: 1.4rem !important;
     color: #3a352f !important;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
     width: 100%;
-    display: inline-block;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: #f4eee1;
+    margin: 10vh auto;
+    padding: 25px;
+    border: 3px solid #4a3f35;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #4a3f35;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.chart-item {
+    background: #e9e4d6;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #d4c3a3;
+    border-radius: 4px;
+}
+
+.chart-item span {
+    display: block;
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+    color: #8e7f67;
 }
 
 footer {
     margin-top: 20px;
     text-align: center;
     font-size: 0.7rem;
-    letter-spacing: 2px;
     color: #b5a489;
 }
 
 @media (max-width: 600px) {
-    .sheikah-font {
-        font-size: 1.6rem; 
-    }
-    .slate-container {
-        padding: 15px;
-        width: 92%;
-    }
+    .sheikah-font { font-size: 1.6rem; }
+    .modal-content { width: 95%; margin: 5vh auto; }
 }

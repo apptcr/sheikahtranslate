@@ -16,7 +16,8 @@
     <meta property="og:url" content="https://apptcr.github.io/sheikahtranslate/">
     <meta property="og:title" content="Sheikah Translator - แปลภาษาชีกคาห์อย่างง่าย">
     <meta property="og:description" content="เปลี่ยนข้อความของคุณให้เป็นอักษรโบราณ Sheikah สำหรับแฟนเกม Zelda โดยเฉพาะ">
-    <meta property="og:image" content="https://apptcr.github.io/sheikahtranslate/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://apptcr.github.io/sheikahtranslate/og-image.jpg"> 
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://apptcr.github.io/sheikahtranslate/">
     <meta property="twitter:title" content="Sheikah Translator">
     <meta property="twitter:description" content="เครื่องมือแปลอักษร Sheikah ออนไลน์">
@@ -43,6 +44,10 @@
                 <label id="labelOutput">Sheikah Script</label>
                 <div id="mainOutput" class="sheikah-font"></div>
             </div>
+
+            <div class="action-section">
+                <button id="refBtn">📜 VIEW REFERENCE CHART</button>
+            </div>
         </main>
 
         <footer>
@@ -50,11 +55,15 @@
         </footer>
     </div>
 
+    <div id="refModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>ANCIENT ALPHABET</h2>
+            <div class="chart-grid" id="chartGrid">
+                </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
-
-

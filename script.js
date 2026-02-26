@@ -4,7 +4,26 @@ const swapBtn = document.getElementById('swapBtn');
 const labelInput = document.getElementById('labelInput');
 const labelOutput = document.getElementById('labelOutput');
 
+// เพิ่ม Element สำหรับ Modal (Pop-up)
+const modal = document.getElementById("refModal");
+const refBtn = document.getElementById("refBtn");
+const closeBtn = document.querySelector(".close-btn");
+const chartGrid = document.getElementById("chartGrid");
+
 let isReverse = false;
+
+// สร้างข้อมูลตารางอ้างอิง (A-Z, 0-9 และเครื่องหมาย -)
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-".split("");
+if (chartGrid) {
+    alphabet.forEach(char => {
+        const item = document.createElement("div");
+        item.className = "chart-item";
+        // ถ้าเป็นเครื่องหมาย - ให้แสดงชื่อว่า SPACE ตามที่คุณต้องการให้มันทำหน้าที่แทนช่องว่าง
+        const label = (char === "-") ? "SPACE" : char;
+        item.innerHTML = `<span>${label}</span><div class="sheikah-font">${char}</div>`;
+        chartGrid.appendChild(item);
+    });
+}
 
 // ฟังก์ชันสำหรับสลับโหมดการทำงาน
 swapBtn.addEventListener('click', () => {
@@ -21,7 +40,7 @@ swapBtn.addEventListener('click', () => {
         mainInput.classList.add('input-sheikah');
         mainOutput.classList.remove('sheikah-font');
         mainOutput.classList.add('normal-font');
-        mainInput.placeholder = "Type here using '-' for spaces...";
+        mainInput.placeholder = "Type here...";
     } else {
         // เปลี่ยนโหมดกลับเป็น แปลจาก English -> Sheikah
         labelInput.textContent = "English Input";
@@ -48,3 +67,26 @@ mainInput.addEventListener('input', (e) => {
         mainOutput.textContent = inputValue;
     }
 });
+
+// --- ระบบควบคุม Pop-up (Modal) ---
+
+// เปิด Modal เมื่อกดปุ่ม
+if (refBtn) {
+    refBtn.onclick = function() {
+        modal.style.display = "block";
+    }
+}
+
+// ปิด Modal เมื่อกดปุ่ม (x)
+if (closeBtn) {
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+}
+
+// ปิด Modal เมื่อคลิกพื้นที่ว่างนอกหน้าต่าง Pop-up
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
