@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://apptcr.github.io/sitemap.xml
