@@ -21,7 +21,7 @@ swapBtn.addEventListener('click', () => {
         mainInput.classList.add('input-sheikah');
         mainOutput.classList.remove('sheikah-font');
         mainOutput.classList.add('normal-font');
-        mainInput.placeholder = "Type here...";
+        mainInput.placeholder = "Type here using '-' for spaces...";
     } else {
         // เปลี่ยนโหมดกลับเป็น แปลจาก English -> Sheikah
         labelInput.textContent = "English Input";
@@ -35,5 +35,16 @@ swapBtn.addEventListener('click', () => {
 
 // ตรวจจับการพิมพ์และส่งค่าไปแสดงผล
 mainInput.addEventListener('input', (e) => {
-    mainOutput.textContent = e.target.value;
+    let inputValue = e.target.value;
+
+    if (!isReverse) {
+        // โหมดปกติ: แปลจาก English -> Sheikah
+        // แทนที่ Spacebar ด้วยเครื่องหมาย "-" เพื่อให้แสดงสัญลักษณ์ตามที่คุณต้องการ
+        const processedText = inputValue.replace(/ /g, "-");
+        mainOutput.textContent = processedText;
+    } else {
+        // โหมดแปลย้อนกลับ: Sheikah -> English
+        // แสดงผลตามที่พิมพ์ปกติ (เนื่องจากฟอนต์ใน Input เป็น Sheikah อยู่แล้ว)
+        mainOutput.textContent = inputValue;
+    }
 });
